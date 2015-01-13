@@ -16,9 +16,9 @@ RUN yum -y install \
   ruby \
   ruby-devel \
   rubygem-ffi \
-  && yum clean all
-RUN gem install bundler
-RUN gem install awestruct -v $AWESTRUCT_VERSION
+  && yum clean all \
+  && gem install bundler \
+  && gem install awestruct -v $AWESTRUCT_VERSION
 
 # Switch back to jboss user
 USER jboss
