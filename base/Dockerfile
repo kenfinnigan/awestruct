@@ -9,7 +9,7 @@ ENV AWESTRUCT_VERSION 0.5.6.beta8
 USER root
 
 # Install necessary packages
-RUN yum -y install ruby && yum clean all
+RUN yum -y install make gcc gcc-c++ ruby ruby-devel rubygem-ffi && yum clean all
 RUN gem install bundler
 RUN gem install awestruct -v $AWESTRUCT_VERSION
 
