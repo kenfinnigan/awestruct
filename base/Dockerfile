@@ -9,9 +9,9 @@ ENV AWESTRUCT_VERSION 0.5.5
 USER root
 
 # Install necessary packages
-yum -y install ruby && yum clean all
-gem install bundler
-gem install awestruct -v $AWESTRUCT_VERSION
+RUN yum -y install ruby && yum clean all
+RUN gem install bundler
+RUN gem install awestruct -v $AWESTRUCT_VERSION
 
 # Switch back to jboss user
 USER jboss
