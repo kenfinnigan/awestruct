@@ -3,7 +3,7 @@ FROM jboss/base:latest
 VOLUME /opt/jboss/website
 
 # Set the AWESTRUCT_VERSION env variable
-ENV AWESTRUCT_VERSION 0.5.5
+ENV AWESTRUCT_VERSION 0.5.6.beta8
 
 # Use root user to install software
 USER root
