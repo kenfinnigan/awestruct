@@ -1,27 +1,13 @@
-FROM jboss/base:latest
+FROM ruby:2.1
 
 VOLUME /opt/jboss/website
 
 # Set the AWESTRUCT_VERSION env variable
 ENV AWESTRUCT_VERSION 0.5.6.beta8
 
-# Use root user to install software
-USER root
+RUN gem install awestruct -v $AWESTRUCT_VERSION
 
-# Install necessary packages
-RUN yum -y install \
-  make \
-  gcc \
-  gcc-c++ \
-  ruby \
-  ruby-devel \
-  rubygem-ffi \
-  && yum clean all \
-  && gem install bundler \
-  && gem install awestruct -v $AWESTRUCT_VERSION
-
-# Switch back to jboss user
-USER jboss
+WORKDIR website
 
 # Expose the ports we're interested in
 EXPOSE 4242
